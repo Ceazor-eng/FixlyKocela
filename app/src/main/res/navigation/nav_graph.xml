@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/signupActivity">
+
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.LoginActivity"
+        android:label="Login">
+        <action
+            android:id="@+id/action_loginActivity_to_dashboardActivity"
+            app:destination="@id/dashboardActivity" />
+    </activity>
+
+    <activity
+        android:id="@+id/dashboardActivity"
+        android:name="com.example.DashboardActivity"
+        android:label="Dashboard">
+        <action
+            android:id="@+id/action_dashboardActivity_to_loginActivity"
+            app:destination="@id/loginActivity" />
+    </activity>
+
+    <activity
+        android:id="@+id/signupActivity"
+        android:name="com.example.SignupActivity"
+        android:label="Signup">
+        <action
+            android:id="@+id/action_signupActivity_to_loginActivity"
+            app:destination="@id/loginActivity" />
+    </activity>
+
+</navigation>

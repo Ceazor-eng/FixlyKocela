@@ -1,0 +1,192 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dashboardsc"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToOutline="true"
+    android:background="#E1E7F6"
+    tools:context=".DashboardActivity">
+
+
+    <View
+        android:id="@+id/profile_icon"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="57dp"
+        android:background="@drawable/user" />
+
+    <View
+        android:id="@+id/notification_icon"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="344dp"
+        android:layout_marginTop="57dp"
+        android:background="@drawable/notificationbell" />
+
+    <TextView
+        android:id="@+id/greeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="143dp"
+        android:fontFamily="@font/josefinsansregular"
+        android:gravity="top"
+        android:text="Hey User"
+        android:textColor="#9B79C9"
+        android:textSize="26sp" />
+
+    <TextView
+        android:id="@+id/who_do_you_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="188dp"
+        android:fontFamily="@font/josefinsansregular"
+        android:gravity="top"
+        android:text="Who do you need?"
+        android:textColor="#050562"
+        android:textSize="28sp" />
+
+    <View
+        android:id="@+id/rectangle_5"
+        android:layout_width="100dp"
+        android:layout_height="91dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="279dp"
+        android:layout_marginTop="139dp"
+        android:background="@drawable/car" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/phonenumbercard"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_below="@id/phonenumbertext"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="280dp"
+        app:cardElevation="28dp"
+        app:cardCornerRadius="8dp"
+        android:padding="10dp"
+        android:background="@android:color/transparent">
+
+
+        <View
+            android:id="@+id/profile_icon"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="9dp"
+            android:background="@drawable/zoomtool" />
+
+        <EditText
+            android:id="@+id/phonenumber"
+            tools:ignore="LabelFor,TextFields"
+            android:layout_width="280dp"
+            android:layout_height="35dp"
+            android:background="@drawable/rounded_edit_text"
+            android:fontFamily="@font/josefinsansregular"
+            android:hint="Search for handyman"
+            android:inputType="text"
+            android:layout_marginStart="40dp"
+            android:paddingStart="10dp"
+            android:paddingBottom="5dp"
+            android:textColorHint="#59000000" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="377dp"
+        android:fontFamily="@font/josefinsansregular"
+        android:gravity="top"
+        android:text="Service"
+        android:textColor="#050562"
+        android:textSize="24sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:layout_marginTop="420dp"
+        android:overScrollMode="always"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/itemlayout" />
+
+    <TextView
+        android:id="@+id/recommended"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="547dp"
+        android:fontFamily="@font/josefinsansregular"
+        android:gravity="top"
+        android:text="Recommended"
+        android:textColor="#050562"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/see_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="302dp"
+        android:layout_marginTop="553dp"
+        android:fontFamily="@font/josefinsansregular"
+        android:gravity="top"
+        android:text="See all"
+        android:textColor="#050562"
+        android:textSize="18sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rercycler_view"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_marginTop="607dp"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:overScrollMode="always"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/itemmlayout" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/r4"
+        app:labelVisibilityMode="labeled"
+        android:layout_marginTop="810dp"
+        app:menu="@menu/bottom_nav_menu"
+        tools:ignore="MissingClass" />
+
+
+</RelativeLayout>
+
