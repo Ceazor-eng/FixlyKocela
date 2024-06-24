@@ -1,5 +1,6 @@
 package com.example.fixly;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -144,10 +145,14 @@ public class DashboardActivity extends AppCompatActivity {
             return new ViewHolder(view);
         }
 
-        @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             String data = dataList.get(position);
             holder.textView.setText(data);
+            holder.itemView.setOnClickListener(v -> {
+                Intent intent = new Intent(v.getContext(), handymanActivity.class);
+//                intent.putExtra("HANDYMAN_DATA", data); // Pass the data to the new Activity
+                v.getContext().startActivity(intent);
+            });
         }
 
         @Override

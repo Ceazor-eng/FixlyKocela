@@ -1,13 +1,11 @@
 package com.example.fixly;
 
-import static android.util.Log.w;
-
 import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,13 +27,12 @@ import okhttp3.Response;
 
 import java.io.IOException;
 
-public class SignupActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     EditText emailEditText, usernameEditText, phoneNumberEditText, passwordEditText, confirmPasswordEditText;
     Button signupButton;
-    ProgressBar progressbar;
+    ProgressBar progressBar;
 
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +41,7 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.signupactivity);
 
         emailEditText = findViewById(R.id.email);
-        progressbar = findViewById(R.id.progressbar);
+        progressBar = findViewById(R.id.progressbar);
         usernameEditText = findViewById(R.id.username);
         phoneNumberEditText = findViewById(R.id.phonenumber);
         passwordEditText = findViewById(R.id.password);
@@ -58,7 +55,7 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Start the LoginActivity
-                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -74,17 +71,16 @@ public class SignupActivity extends AppCompatActivity {
 
                 // Validate input
                 if (email.isEmpty() || username.isEmpty() || phoneNumber.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-                    Toast.makeText(SignupActivity.this, "All fields are required", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "All fields are required", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (!password.equals(confirmPassword)) {
-                    Toast.makeText(SignupActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                 progressbar.setVisibility(View.VISIBLE);
-                 progressbar.bringToFront();
+                progressBar.setVisibility(View.VISIBLE);
 
                 // Start the signup task
                 new SignupTask().execute(username, email, phoneNumber, password);
@@ -101,7 +97,7 @@ public class SignupActivity extends AppCompatActivity {
             try {
                 postData.put("username", params[0]);
                 postData.put("email", params[1]);
-                postData.put("phone_number", params[2]);  // Updated key to match PHP
+                postData.put("phone_number", params[2]);
                 postData.put("password", params[3]);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -127,13 +123,15 @@ public class SignupActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String response) {
             super.onPostExecute(response);
-            progressbar.setVisibility(View.GONE);
+            progressBar.setVisibility(View.GONE);
 
             if (response == null) {
-                // Handle null response (e.g., network error)
-                Toast.makeText(SignupActivity.this, "Failed to connect to the server", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Failed to connect to the server", Toast.LENGTH_SHORT).show();
                 return;
             }
+
+            // Log the response to see what is coming from the server
+            Log.d("SignupResponse", response);
 
             // Process API response
             try {
@@ -142,17 +140,22 @@ public class SignupActivity extends AppCompatActivity {
                 String message = jsonResponse.getString("message");
 
                 // Show appropriate message to the user
-                Toast.makeText(SignupActivity.this, message, Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
 
-                // If registration is successful, navigate back to the login page
-                if (status.equals("success")) {
-                    Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    finish(); // Close the signup activity to prevent user from going back
+                // If registration is successful, navigate to the next activity
+                if (status.equals("1")) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    });
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
-                // Handle JSON parsing error
+                Toast.makeText(MainActivity.this, "An error occurred", Toast.LENGTH_SHORT).show();
             }
         }
     }

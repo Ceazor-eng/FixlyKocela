@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:clipToOutline="true"
     android:background="#E1E7F6"
-    tools:context=".SignupActivity">
+    tools:context=".MainActivity">
 
     <ScrollView
         android:layout_width="match_parent"

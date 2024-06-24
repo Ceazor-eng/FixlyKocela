@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/handymanscreen"
+    android:clipToOutline="true"
+    android:background="#E1E7F6"
+    tools:context=".handymanActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/rectangle_4"
+                android:layout_width="match_parent"
+                android:layout_height="457dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="491dp"
+                android:background="@drawable/rectangle_4" />
+
+            <View
+                android:id="@+id/back"
+                android:layout_width="26dp"
+                android:layout_height="22dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="31dp"
+                android:layout_marginTop="39dp"
+                android:background="@drawable/back" />
+
+            <TextView
+                android:id="@+id/dan_omondi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="37dp"
+                android:layout_marginTop="521dp"
+                android:fontFamily="@font/josefinsansregular"
+                android:gravity="top"
+                android:textColor="#050562"
+                android:text="John Doe"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="558dp"
+                android:fontFamily="@font/josefinsansregular"
+                android:text="About"
+                android:textColor="#050562"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/hello_i_m_d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="607dp"
+                android:text="Hello! I'm Dan,your go-to plumbing expert for all your residential and commercial needs.With over 15 years of experience in the industry,I pride myself on delivering top-quality service with a personal touch.
+                Whether it's a leaky faucet, a clogged drain, or a major plumbing overhaul, no job is too big or too small for me."
+                android:textSize="15sp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/contactbuttoncard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/passwordcard"
+                android:layout_marginTop="740dp"
+                android:layout_marginStart="100dp"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="28dp">
+
+                <Button
+                    android:id="@+id/contactbutton"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/rounded_button"
+                    android:fontFamily="@font/josefinsansregular"
+                    android:textColor="@color/white"
+                    android:text="Contact"
+                    android:paddingBottom="5dp"
+                    tools:ignore="HardcodedText" />
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+
+
+
+</RelativeLayout>
